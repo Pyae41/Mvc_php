@@ -4,6 +4,7 @@ namespace app\core;
 
 use Dotenv\Dotenv;
 use PDO;
+use PDOException;
 
 trait Database
 {
@@ -12,8 +13,13 @@ trait Database
     {
         $dotenv = Dotenv::createImmutable(dirname(__DIR__));
         $dotenv->load();
-        $pdo = new PDO("mysql:host=" . $_ENV["DB_HOST"] . ";port=" . $_ENV["DB_PORT"] . ";dbname=" . $_ENV["DB_NAME"], $_ENV["DB_USERNAME"], $_ENV["DB_PASSWORD"]);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        try{
+            $pdo = new PDO("mysql:host=" . $_ENV["DB_HOST"] . ";port=" . $_ENV["DB_PORT"] . ";dbname=" . $_ENV["DB_NAME"], $_ENV["DB_USERNAME"], $_ENV["DB_PASSWORD"]);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
 
         return $pdo;
     }

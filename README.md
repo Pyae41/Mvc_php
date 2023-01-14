@@ -1,1 +1,1 @@
-to run - change directory into public and php -S localhost:<yourport>
+to run - change directory into public and php -S localhost:<your port>
