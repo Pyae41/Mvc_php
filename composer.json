@@ -1,0 +1,17 @@
+{
+    "name": "helloworld/mvc_php",
+    "authors": [
+        {
+            "name": "Pyae Phyo Zan",
+            "email": "pyae418283@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
