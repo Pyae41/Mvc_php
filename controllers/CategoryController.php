@@ -49,6 +49,19 @@ class CategoryController extends Controller
         if($result){
             return $this->redirect("categories");
         }
+    }
+    
+    public function editCategory(Request $request){
+        $id = $request->getQuery("id");
 
+        $data = new Category();
+
+        $category = $data->select($id);
+        $parents = $data->all();
+
+        return $this->view('edit_category', [
+            "category" => $category,
+            "parents" => $parents
+        ]);
     }
 }
