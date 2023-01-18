@@ -9,7 +9,6 @@ class Application
 
     public static Application $app;
 
-    private Database $database;
     public static string $ROOT_DIR;
 
     public function __construct($rootPath)
