@@ -3,7 +3,7 @@
 namespace app\core;
 class Application
 {
-    public Route $Route;
+    public Route $route;
     private Request $request;
     public Response $response;
 
@@ -17,12 +17,12 @@ class Application
         self::$app = $this;
         $this->request = new Request();
         $this->response = new Response();
-        $this->Route = new Route($this->request);
+        $this->route = new Route($this->request);
         require_once self::$ROOT_DIR."/routes/web.php";
 
     }
 
     public function run(){
-        echo $this->Route->resolved();
+        echo $this->route->resolved();
     }
 }
