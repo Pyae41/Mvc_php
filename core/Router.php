@@ -2,7 +2,7 @@
 
 namespace app\core;
 
-class Router
+class Route
 {
 
     private static array $routes = [];
